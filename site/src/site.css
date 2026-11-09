@@ -1,0 +1,670 @@
+/* The page builds on the settings page's styles (src/options/index.css) and adds what a home
+   page needs. Same language: flat, thin lines, small radii, accent as a mark of selection. */
+@import '../../src/options/index.css';
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  overflow-x: hidden;
+}
+
+main {
+  max-width: 1180px;
+}
+
+/* Links that look like the extension's buttons. */
+a.button {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 12px;
+  background: var(--button-bg);
+  color: var(--fg);
+  cursor: pointer;
+}
+
+a.button:hover {
+  background: var(--button-hover);
+  text-decoration: none;
+}
+
+a.button.primary {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+a.button.primary:hover {
+  filter: brightness(1.1);
+}
+
+/* Reserved: no address yet. */
+a.button[aria-disabled='true'] {
+  cursor: default;
+}
+
+button.ghost,
+.icon {
+  background: transparent;
+  color: var(--muted);
+}
+
+button.ghost:hover,
+.icon:hover {
+  background: var(--hover);
+  color: var(--fg-strong);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+button[aria-pressed='true'] {
+  background: var(--selected);
+  color: var(--fg-strong);
+}
+
+.icon {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  padding: 0;
+}
+
+a.button.icon {
+  padding: 0;
+  background: transparent;
+}
+
+a.button.icon:hover {
+  background: var(--hover);
+}
+
+.icon svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+/* Header, like the popup's. */
+.site-header {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: 10px max(24px, calc((100vw - 1132px) / 2));
+  background: var(--bg);
+}
+
+.brand {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--fg-strong);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.brand:hover {
+  text-decoration: none;
+}
+
+.site-header nav {
+  display: flex;
+  flex: 1;
+  gap: 16px;
+}
+
+.site-header nav a {
+  color: var(--muted);
+}
+
+.site-header nav a:hover {
+  color: var(--fg-strong);
+  text-decoration: none;
+}
+
+.site-actions {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.hero {
+  margin-top: 0;
+}
+
+.hero h1 {
+  max-width: 22em;
+  font-size: 34px;
+  line-height: 1.25;
+}
+
+.lead {
+  max-width: 44em;
+  margin: 10px 0 16px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.cta-note {
+  margin-left: 8px;
+  font-size: 13px;
+}
+
+.section-head {
+  margin-bottom: 12px;
+}
+
+.section-head .description {
+  max-width: 52em;
+}
+
+/* The browser around the demo. */
+.browser {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.tab-strip {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 8px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-bar);
+}
+
+#tabs {
+  display: flex;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.tab {
+  display: flex;
+  flex: none;
+  gap: 8px;
+  align-items: center;
+  height: 34px;
+  padding: 0 14px;
+  border-top: 2px solid transparent;
+  border-right: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+}
+
+.tab:hover {
+  background: var(--hover);
+}
+
+.tab[aria-selected='true'] {
+  border-top-color: var(--accent);
+  background: var(--surface);
+  color: var(--fg-strong);
+}
+
+.tab-close {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  color: var(--muted);
+}
+
+.tab-close:hover {
+  background: var(--hover);
+  color: var(--fg-strong);
+}
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.address {
+  flex: 1;
+  min-width: 0;
+  height: 28px;
+  overflow: hidden;
+  padding: 0 8px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--muted);
+  line-height: 26px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.page-tools {
+  display: flex;
+  flex: none;
+  gap: 8px;
+  align-items: center;
+}
+
+.toolbar-logo {
+  flex: none;
+}
+
+/* The popup's "All sites / Only this site". */
+.segmented {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--input-border);
+}
+
+.segmented legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.segmented label {
+  height: 26px;
+  padding: 0 10px;
+  line-height: 26px;
+  cursor: pointer;
+}
+
+.segmented label + label {
+  border-left: 1px solid var(--input-border);
+}
+
+.segmented label:has(input:checked) {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+.segmented input {
+  position: absolute;
+  opacity: 0;
+}
+
+.stage {
+  display: flex;
+  height: 660px;
+}
+
+.stage-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+#viewport {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--page);
+}
+
+#viewport iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #ffffff;
+  transform-origin: 0 0;
+}
+
+.dock {
+  flex: none;
+  width: 341px;
+  overflow-y: auto;
+  border-left: 1px solid var(--line);
+  background: var(--bg);
+}
+
+#popup {
+  display: block;
+  width: 100%;
+  height: 600px;
+  border: 0;
+}
+
+#source {
+  flex: none;
+  max-height: 200px;
+  overflow: auto;
+  border-top: 1px solid var(--line);
+  background: var(--surface-bar);
+  font-size: 13px;
+}
+
+.source-head {
+  padding: 6px 12px;
+  color: var(--muted);
+}
+
+#source-lines {
+  padding-bottom: 8px;
+}
+
+.line {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  padding: 0 12px;
+  border-left: 3px solid transparent;
+  white-space: pre;
+}
+
+.line code {
+  padding: 0;
+  background: transparent;
+  overflow-wrap: normal;
+}
+
+.line .sign {
+  flex: none;
+  width: 1em;
+  color: var(--muted);
+  font-family: Consolas, 'Droid Sans Mono', 'Courier New', monospace;
+}
+
+.line .note {
+  color: var(--muted);
+}
+
+.line.added {
+  border-left-color: var(--accent);
+  background: var(--selected);
+}
+
+.line.removed {
+  border-left-color: var(--danger);
+}
+
+.line.removed code {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+/* Cards. */
+.features,
+.downloads {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.features {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.downloads {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.theme-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-head {
+  flex: 1;
+}
+
+.card-head h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.card-head p {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+.card-bar .actions {
+  margin-left: 0;
+}
+
+.card-bar .actions button {
+  height: auto;
+  min-height: 28px;
+  padding-block: 3px;
+}
+
+/* Colors. */
+.color-lab {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+}
+
+.color-input {
+  min-width: 0;
+  border-right: 1px solid var(--line);
+}
+
+#color-css {
+  display: block;
+  width: 100%;
+  height: 240px;
+  padding: 12px 16px;
+  border: 0;
+  background: transparent;
+  color: var(--fg);
+  font-family: Consolas, 'Droid Sans Mono', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  resize: vertical;
+  tab-size: 2;
+}
+
+#color-css:focus-visible {
+  outline: 1px solid var(--focus);
+  outline-offset: -1px;
+}
+
+.color-output {
+  padding: 12px 16px;
+}
+
+.color {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 6px 0;
+}
+
+.color-swatch {
+  flex: none;
+  width: 40px;
+  height: 28px;
+  border: 1px solid var(--input-border);
+}
+
+.color-role {
+  flex: 1;
+  color: var(--fg-strong);
+}
+
+.color-lab .card-bar {
+  grid-column: 1 / -1;
+  justify-content: space-between;
+}
+
+.presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* How it works. */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 12px 0 16px;
+  padding: 0;
+  counter-reset: step;
+  list-style: none;
+}
+
+.steps li {
+  padding-left: 12px;
+  border-left: 3px solid var(--accent);
+  counter-increment: step;
+}
+
+.steps h3 {
+  margin: 0 0 2px;
+}
+
+.steps h3::before {
+  content: counter(step) '. ';
+  color: var(--muted);
+}
+
+.steps p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.fact {
+  border-bottom: 1px solid var(--line);
+}
+
+h3 + .fact {
+  margin-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.fact summary {
+  padding: 8px 0;
+  color: var(--fg-strong);
+  cursor: pointer;
+}
+
+.fact summary:hover {
+  color: var(--link);
+}
+
+.fact p,
+.fact ul {
+  max-width: 52em;
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+
+.fact ul {
+  padding-left: 20px;
+}
+
+.site-footer {
+  padding: 16px 24px 32px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0 0 4px;
+}
+
+@media (max-width: 960px) {
+  .site-header nav {
+    display: none;
+  }
+
+  .site-actions {
+    margin-left: auto;
+  }
+
+  .features,
+  .downloads,
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stage {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .stage-main {
+    flex: none;
+    height: 560px;
+  }
+
+  .dock {
+    width: 100%;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .color-lab {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .color-input {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    padding: 10px 16px;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .cta-note {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .features,
+  .downloads,
+  .steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .address {
+    flex-basis: 100%;
+  }
+
+  .toolbar {
+    flex-wrap: wrap;
+  }
+
+  .stage-main {
+    height: 520px;
+  }
+}

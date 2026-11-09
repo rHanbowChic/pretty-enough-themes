@@ -1,0 +1,177 @@
+/* The default theme of the first demo site. It knows the .top-bar / .mobile-top-bar structure. */
+body {
+  background: #e9ece4;
+  color: #2c3a33;
+  font-family: Georgia, 'Noto Serif CJK SC', 'Songti SC', serif;
+}
+
+#container {
+  max-width: 980px;
+  margin: 0 auto;
+  background: #fbfbf6;
+}
+
+#header {
+  position: relative;
+  height: auto;
+  padding: 26px 32px 0;
+  background: #24493f;
+}
+
+#header h1,
+#header h2 {
+  float: none;
+  margin: 0;
+  padding: 0;
+}
+
+#header h1 a {
+  color: #f4f1df;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+#header h2 span {
+  color: #b9cfc0;
+  font-size: 14px;
+}
+
+#search-top-box {
+  position: absolute;
+  top: 28px;
+  right: 32px;
+}
+
+#login-status {
+  position: absolute;
+  top: 8px;
+  right: 32px;
+  color: #b9cfc0;
+  font-size: 12px;
+}
+
+#login-status a {
+  color: #f4f1df;
+}
+
+#top-bar {
+  position: static;
+  width: auto;
+  margin: 16px -32px 0;
+  background: #1a362f;
+}
+
+#top-bar .top-bar > ul {
+  display: flex;
+  gap: 4px;
+  margin: 0;
+  padding: 0 24px;
+  list-style: none;
+}
+
+#top-bar .top-bar li a {
+  display: block;
+  padding: 8px 12px;
+  color: #dbe8db;
+  text-decoration: none;
+}
+
+#top-bar .top-bar li a:hover {
+  background: #2d5d50;
+}
+
+#top-bar .mobile-top-bar {
+  display: none;
+}
+
+#content-wrap {
+  display: flex;
+  gap: 28px;
+  padding: 24px 32px;
+}
+
+#side-bar {
+  position: static;
+  flex: 0 0 170px;
+  width: 170px;
+  padding: 0;
+  font-size: 14px;
+}
+
+#side-bar ul {
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+#side-bar a {
+  color: #24493f;
+}
+
+#main-content {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#page-title {
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #24493f;
+  color: #24493f;
+  font-size: 28px;
+}
+
+#page-content a {
+  color: #9c5a1a;
+}
+
+.wiki-content-table th {
+  background: #dfe7d9;
+}
+
+#footer,
+#license-area {
+  padding: 8px 32px;
+  background: #24493f;
+  color: #dbe8db;
+  font-size: 12px;
+}
+
+#footer a,
+#license-area a {
+  color: #f4f1df;
+}
+
+@media (max-width: 720px) {
+  #search-top-box,
+  #login-status,
+  #side-bar,
+  #top-bar .top-bar {
+    display: none;
+  }
+
+  #top-bar .mobile-top-bar {
+    display: block;
+  }
+
+  #top-bar .mobile-top-bar ul {
+    display: flex;
+    gap: 12px;
+    margin: 0;
+    padding: 8px 16px;
+    overflow-x: auto;
+    list-style: none;
+  }
+
+  #top-bar .mobile-top-bar a {
+    color: #dbe8db;
+    white-space: nowrap;
+  }
+
+  #content-wrap {
+    display: block;
+    padding: 16px;
+  }
+}

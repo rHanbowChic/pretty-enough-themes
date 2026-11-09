@@ -1,0 +1,471 @@
+/*
+ * Monobook by Fereal
+ * https://themes.wikidot.com/monobook
+ * License: Creative Commons Attribution-ShareAlike 3.0
+ * Downloaded from https://themes.wdfiles.com/local--code/monobook by scripts/fetch-themes.mjs;
+ * url()s made absolute and https. Do not edit by hand.
+ */
+/*********************************************
+* Monobook Design
+* by Fereal
+* http://monobook.wikidot.com/
+*********************************************/
+
+/***** GLOBAL HYPERLINKS *****/
+a{
+	color: #002bb8;
+	text-decoration:none;
+}
+
+a:hover{
+	background-color:transparent;
+	text-decoration:underline;
+}
+
+a:visited {
+	color: #5a3696;
+}
+
+a .newpage{
+	color: #772233;
+}
+
+/***** HEADER AREA *****/
+#header{
+	height: 36px;
+}
+
+#header h2, #header h1 a span{
+	display: none;
+}
+
+#header h1 a,#header h1 a:hover{
+	background-color: transparent;
+	background-image: url();
+	height: 150px;
+	width: 150px;
+	background-repeat: no-repeat;
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	top: 2px;
+	left: 4px;
+}
+
+#login-status{
+	top: 2px;
+}
+
+#account-options{
+	font-size: 80%;
+}
+
+/***** GLOBAL SEARCH BAR *****/
+#search-top-box{
+	top: 350px;
+	left: 9px;
+	font-size: 0.82em;
+	width: 122px;
+	display: none;
+}
+
+#search-top-box-input{
+	width: 122px;
+}
+
+#search-top-box-form input.button{
+	position:absolute;
+	left: 37px;
+	top: 20px;
+	width: 5em;
+}
+
+/***** MODULE SEARCH BAR *****/
+#side-bar .search-box{
+	font-size: 0.82em;
+}
+
+#side-bar .search-box .search-results,
+#side-bar .search-box .pager{
+	display: none;
+}
+
+#side-bar .search-box #search-form .text{
+	width: 122px;
+}
+
+#side-bar .search-box #search-form .button{
+	position: relative;
+	top: 2px;
+}
+
+#side-bar .search-box .query-area,
+#side-bar .search-box .query-area #search-form div{
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+#page-content .search-box .query-area #search-form div{
+	display: none;
+}
+
+/***** PAGE TITLE *****/
+#page-title{
+	font-size: 180%;
+}
+
+/***** BREADCRUMBS *****/
+#breadcrumbs{
+	display: none;
+}
+
+/***** TOP MENU *****/
+
+#top-bar{
+	left: 163px;
+	right:auto;
+	font-size: 85%;
+	margin-bottom: -1px;
+	font-family:sans-serif;
+	text-transform: lowercase;
+	width:800px;
+}
+
+/*** FIRST LEVEL ***/
+#top-bar ul a{
+	border: 1px solid #aaa;	
+	background-color: #FCFCFC;
+}
+
+#top-bar ul strong a{
+	border: 1px solid #fabd23;
+	border-bottom:1px solid white;
+}
+
+#top-bar ul li a.wiki-standalone-button{
+	border: 1px solid #aaa;
+}
+
+#top-bar ul li:hover a{
+	text-decoration: none;
+	background-color: #fff;
+	border-bottom: 1px solid white;
+}
+
+/*** SECOND LEVEL ***/
+#top-bar ul li.sfhover ul{
+	width: 129px;
+	border: 1px solid silver;
+	background-color: #FFF;	
+}
+
+#top-bar ul li.sfhover ul li{
+	height:16px;
+}
+
+#top-bar ul li.sfhover ul li.sfhover{
+	height:16px;
+}
+
+#top-bar ul li.sfhover ul a{
+	width: 105px;
+	font-weight: normal;
+	background-color: white;
+	border-style: none;
+}
+
+#top-bar ul li.sfhover ul li:hover a{
+	background-color: #f5f5f5;
+}
+
+#top-bar ul li.sfhover ul li.sfhover {
+	width: 105px;
+	font-weight: normal;
+	background-color: white;
+}
+
+/*** THIRD LEVEL ***/
+#top-bar ul li ul li ul{
+	display: none;
+}
+
+#top-bar ul li.sfhover ul li.sfhover ul {
+	display: block;
+	position:relative;
+	left: 125px;
+	top: -17px;
+}
+
+#top-bar ul li.sfhover ul li.sfhover ul li a{
+	background-color: #fff;
+}
+
+#top-bar ul li.sfhover ul li.sfhover ul li:hover a{
+	background-color: #f5f5f5;
+}
+
+/***** SIDE BAR *****/
+#side-bar{
+	margin-top: 127px;
+	vertical-align:top;
+	width: 11.3em;
+	padding: 3px .5em 0 0;
+}
+
+#side-bar p{
+	margin: 1em 0 1em;
+}
+
+#side-bar h1{
+	font-size: 95%;
+	font-family: sans-serif;
+	margin: -0.3em 0 -1em 0.6em;
+	text-transform: lowercase;
+	padding-bottom: 0px;
+}
+
+#side-bar h2{
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	width:600px;
+	top: 2px;
+	left: 157px;
+	z-index: 30;
+	font-size: 0.82em;
+	font-style: italic;
+	font-weight: normal;
+}
+
+#side-bar h2 a{
+	font-weight: bold;
+}
+
+#side-bar h3{
+	margin: 0;
+	position: absolute;
+	width: 600px;
+	top: 81px;
+	left: 170px;
+	font-family:sans-serif;
+	font-size: 90%;
+}
+
+#side-bar p, #side-bar ul{
+	margin-left: 0;
+	font-size: 85%;
+	font-family: sans-serif;
+	background-color: #ffffff;
+	padding: 4px 4px 4px 6px;
+	border: 1px solid #aaa;
+	line-height: 19px;
+}
+
+#side-bar ul{
+	list-style-type: none;
+	margin-top: 11px;
+	margin-bottom: 10px;
+	padding-left: 8px;
+}
+
+#side-bar ul li{
+	text-decoration: none;
+	padding-left: 17px;
+	background-image: url("https://pgiwiki.wikidot.com/local--files/side:files/monobook-dot.png");
+	background-repeat: no-repeat;
+	background-position: center left;
+}
+
+#side-bar p a{
+	padding: 2px 0 2px 0;
+}
+
+#side-bar p a:hover{
+	text-decoration: underline;
+	background-color: transparent;
+}
+
+#side-bar div{
+	margin-left: 0;
+	background-color: #ffffff;
+	border: 1px solid #aaa;
+	padding: 6px 3px  6px 3px;
+	text-align: center;
+	margin-top: 11px;
+	margin-bottom: 11px;
+}
+
+#side-bar div a{
+	padding: 2px 0 2px 0;
+}
+
+#side-bar .new-page-box{
+	margin-left: 0;
+	font-size: 0.82em;
+	background-color: #ffffff;
+	padding: 4px 3px 3px 3px;
+	border: 1px solid gray;
+	text-align: center;
+}
+
+#side-bar .actions{
+	font-size: 0.82em;
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+/***** CONTAINER *****/
+#container{
+	background-color: #f9f9f9;
+	font: sans-serif;
+	background-image: url();
+	background-repeat: repeat-x;
+	min-width: 1000px;
+}
+
+/***** MAIN CONTENT *****/
+#main-content{
+	border: 1px solid #aaa;
+	border-right: none;
+	background-color: #fff;
+	margin-left: 156px;
+	font-family: sans-serif;
+}	
+
+/***** GLOBAL HEADERS *****/
+h1{
+	border-bottom: 1px solid silver;
+	padding-bottom: 3px;
+	margin: 0 0 0 0;
+	font-family: sans-serif;
+	font-size: 140%;
+}
+
+h2{
+	font-family: sans-serif;
+	font-size: 130%;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+/***** PAGE CONTENT *****/
+#page-content{
+	padding-top: 15px;
+	line-height: 150%;
+}
+
+#page-content p{
+	margin-top: 6px;
+}
+
+#page-content ul{
+	margin-top: 11px;
+	margin-bottom: 10px;
+	padding-left:5px;
+}
+
+#page-content ul li {
+    background-image: url("https://themes.wikidot.com/local--files/monobook/monobullet.png");
+    background-position: left top;
+    background-repeat: no-repeat;
+    list-style-type: none;
+    margin-left: 5px;
+    padding-left: 10px;
+}
+
+#page-content .wd-editor-toolbar-panel ul li{
+	padding-left: 0;
+}
+
+#page-content .wd-editor-toolbar-panel ul{
+	padding-left: 0;
+	margin: 0;
+}
+
+#page-content .code{
+	font-size: 85%;
+}
+
+#new-thread-form ul{
+	padding-left: 0;
+	list-style-image:none;
+	list-style-type:none;
+}
+
+/***** FOOTER *****/
+#footer, #license-area{
+	background-color: #fff;
+	font-size: 85%;
+}
+
+#footer{
+	border-top: 1px solid #fabd23;
+	padding-top: 8px;
+	padding-bottom: 5px;
+}
+
+#license-area{
+	padding-bottom: 8px;
+	border-bottom: 1px solid #fabd23;
+	margin-bottom: 5px;
+}
+
+/***** PAGE OPTIONS *****/
+.page-options-bottom a{
+	font-size: 90%;
+}
+
+/***** TABLE OF CONTENTS *****/
+#toc{
+	border: 1px solid gray;
+}
+
+#toc-action-bar a{
+	font-size: 90%;
+}
+
+/***** WIKIDOT EDITOR *****/
+#edit-page-textarea{
+	font-size: 80%;
+	height: 500px;
+}
+
+/***** MISC *****/
+.image-container{
+	padding:0;
+}
+
+/***** RANDOM TEXT *****/
+#side-bar .list-pages-box{
+	position: absolute;
+	top: 0px;
+	left: 157px;
+	background: transparent;
+	border-width:0px;
+	z-index: 30;
+	margin: 0;
+	padding: 0;
+}
+
+#side-bar .list-pages-item{
+	background: transparent;
+	border-width: 0px;
+	margin: 0;
+	padding: 0;
+}
+
+#side-bar .list-pages-item p{	
+	position: relative;
+	z-index: 2;
+	margin: 0;
+	padding: 0;
+	background:transparent;
+	border-width:0px;
+	width:600px;
+	text-align:left;
+	font-size: 0.82em;
+	font-style: italic;
+	font-weight: normal;
+}

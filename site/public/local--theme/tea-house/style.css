@@ -1,0 +1,136 @@
+/* The default theme of the second demo site. wikidot's plain structure: #top-bar > ul. */
+body {
+  background: #f6efe6;
+  color: #43302b;
+  font-family: 'Trebuchet MS', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+#container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+#header {
+  height: auto;
+  padding: 32px 24px 0;
+  border-bottom: 4px solid #a44a3f;
+  text-align: center;
+}
+
+#header h1,
+#header h2 {
+  float: none;
+  margin: 0;
+  padding: 0;
+}
+
+#header h1 a {
+  color: #7d2e26;
+  font-size: 34px;
+  text-decoration: none;
+}
+
+#header h2 span {
+  color: #8a6f62;
+}
+
+#search-top-box,
+#login-status {
+  display: none;
+}
+
+#top-bar {
+  position: static;
+  width: auto;
+  margin: 14px 0 0;
+}
+
+#top-bar > ul {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 0;
+  padding: 0 0 10px;
+  list-style: none;
+}
+
+#top-bar a {
+  color: #7d2e26;
+  text-decoration: none;
+}
+
+#content-wrap {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 24px;
+  padding: 24px;
+}
+
+#side-bar {
+  position: static;
+  flex: 0 0 180px;
+  width: 180px;
+  padding: 12px;
+  border: 1px solid #e0d0bf;
+  background: #fffaf3;
+  font-size: 14px;
+}
+
+#side-bar ul {
+  margin: 0 0 12px;
+  padding-left: 18px;
+}
+
+#side-bar a {
+  color: #a44a3f;
+}
+
+#main-content {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#page-title {
+  margin: 0 0 10px;
+  color: #7d2e26;
+  font-size: 26px;
+}
+
+#page-content a {
+  color: #a44a3f;
+}
+
+.wiki-content-table th {
+  background: #f0ddc9;
+}
+
+#footer,
+#license-area {
+  padding: 8px 24px;
+  color: #8a6f62;
+  font-size: 12px;
+  text-align: center;
+}
+
+#footer a,
+#license-area a {
+  color: #a44a3f;
+}
+
+@media (max-width: 720px) {
+  #side-bar {
+    display: none;
+  }
+
+  #top-bar > ul {
+    flex-wrap: wrap;
+    gap: 10px 16px;
+  }
+
+  #content-wrap {
+    display: block;
+    padding: 16px;
+  }
+}

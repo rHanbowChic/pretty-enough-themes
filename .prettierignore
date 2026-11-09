@@ -1,0 +1,11 @@
+# Ignore artifacts:
+build
+build-firefox
+site/dist
+site/public
+package
+src/themes/*.css
+coverage
+node_modules
+pnpm-lock.yaml
+pnpm-workspace.yaml

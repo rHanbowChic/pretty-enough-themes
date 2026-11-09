@@ -1,0 +1,19 @@
+# dependencies
+/node_modules
+
+# production
+/build
+/build-firefox
+/site/dist
+/package
+*.crx
+
+# misc
+.DS_Store
+*.log
+
+# extension signing key
+*.pem
+
+# local Claude Code settings and skills
+.claude/

@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pretty Enough Themes：为任意 wikidot 站点换上你选的版式</title>
+    <meta
+      name="description"
+      content="Chrome / Firefox 扩展：把 wikidot 站点的版式换成你选的版式，立即生效，不用刷新页面。"
+    />
+    <link rel="icon" href="../public/icons/logo.ico" />
+    <!-- English readers, or a stored look: wait for the script rather than flash the wrong one. -->
+    <style>
+      html.pending {
+        visibility: hidden;
+      }
+    </style>
+    <script>
+      try {
+        var language = localStorage.getItem('pet-lang') || navigator.language
+        if (!/^zh/i.test(language) || localStorage.getItem('pet-scheme')) {
+          document.documentElement.className = 'pending'
+        }
+      } catch (error) {}
+    </script>
+    <script type="module" src="./src/main.ts"></script>
+  </head>
+  <body>
+    <!-- Text: Chinese in the element, English in data-en (`code` and **bold** as in the extension). -->
+    <header class="site-header">
+      <a class="brand" href="#top">
+        <img data-logo alt="" width="24" height="24" />
+        <span>Pretty Enough Themes</span>
+      </a>
+      <nav aria-label="页面">
+        <a href="#demo" data-en="Demo">演示</a>
+        <a href="#features" data-en="Features">功能</a>
+        <a href="#colors" data-en="Colors">主题色</a>
+        <a href="#how" data-en="How it works">原理</a>
+        <a href="#download" data-en="Download">下载</a>
+      </nav>
+      <div class="site-actions">
+        <button type="button" id="lang" class="ghost"><span id="lang-label">English</span></button>
+        <button type="button" id="scheme" class="icon">
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <circle cx="8" cy="8" r="5.2" fill="none" stroke="currentColor" stroke-width="1.2" />
+            <path d="M8 2.8a5.2 5.2 0 0 1 0 10.4Z" fill="currentColor" />
+          </svg>
+        </button>
+        <a class="button icon" data-link="github" aria-label="GitHub">
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"
+            />
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <h1 data-en="Put the theme you like on any wikidot site">
+          为任意 wikidot 站点换上你选的版式
+        </h1>
+        <p
+          class="lead"
+          data-en="A Chrome and Firefox extension. Click its toolbar icon to switch between built-in themes and your own. The page changes at once, with no reload."
+        >
+          一个 Chrome / Firefox
+          扩展。点击工具栏图标，在内置版式和自定义版式之间切换，立即生效，不用刷新页面。
+        </p>
+        <div class="cta">
+          <a class="button primary" data-link="chrome" data-en="Download for Chrome"
+            >下载 Chrome 版</a
+          >
+          <a class="button" data-link="firefox" data-en="Download for Firefox">下载 Firefox 版</a>
+          <a class="button" data-link="github">GitHub</a>
+          <span class="muted cta-note" data-en="v0.0.1 · MIT · Chrome 111+ · Firefox 128+"
+            >v0.0.1 · MIT · Chrome 111+ · Firefox 128+</span
+          >
+        </div>
+      </section>
+
+      <section id="demo" aria-labelledby="demo-title">
+        <div class="section-head">
+          <h2 id="demo-title" data-en="Try it here">在这里试一试</h2>
+          <p
+            class="description"
+            data-en="This is not a recording. The popup, settings page and content script below are the extension’s real code, running in a simulated browser on two made-up sites. Nothing is saved."
+          >
+            这不是录屏。下面的弹出菜单、设置页和内容脚本都是扩展的真实代码，运行在一个模拟的浏览器和两个虚构站点上。这里的操作不会保存。
+          </p>
+        </div>
+
+        <div class="browser">
+          <div class="tab-strip">
+            <div id="tabs" role="tablist" aria-label="标签页"></div>
+            <button type="button" id="demo-reset" class="ghost" data-en="Reset">重置</button>
+          </div>
+          <div class="toolbar">
+            <span id="address" class="address"></span>
+            <div id="page-tools" class="page-tools">
+              <fieldset class="segmented">
+                <legend data-en="Page width">页面宽度</legend>
+                <label>
+                  <input type="radio" name="viewport" value="desktop" checked />
+                  <span data-en="Desktop">桌面</span>
+                </label>
+                <label>
+                  <input type="radio" name="viewport" value="phone" />
+                  <span data-en="Phone">手机</span>
+                </label>
+              </fieldset>
+              <button type="button" id="toggle-source" aria-pressed="false">
+                <span data-en="Page source">页面源码</span>
+              </button>
+            </div>
+            <img class="toolbar-logo" data-logo alt="" width="20" height="20" />
+          </div>
+          <div class="stage">
+            <div class="stage-main">
+              <div id="viewport"></div>
+              <div id="source" hidden>
+                <div class="source-head">
+                  <span data-en="`<head>` of this page, updated live">
+                    当前页面的 <code>&lt;head&gt;</code>，随操作实时更新
+                  </span>
+                </div>
+                <div id="source-lines"></div>
+              </div>
+            </div>
+            <aside class="dock" aria-label="弹出菜单">
+              <iframe id="popup" title="Pretty Enough Themes" data-tab="0"></iframe>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" aria-labelledby="features-title">
+        <div class="section-head">
+          <h2 id="features-title" data-en="What it does">能做什么</h2>
+          <p class="description" data-en="Each button below does the same thing in the demo above.">
+            下面每个按钮都会在上方的演示里操作一次。
+          </p>
+        </div>
+        <ul class="features">
+          <li class="theme-card">
+            <div class="card-head">
+              <h3 data-en="Switch instantly">立即切换</h3>
+              <p
+                data-en="Move between the site’s default, no theme, built-in themes and your own. Open pages update without a reload."
+              >
+                在站点默认、无版式、内置版式和自定义版式之间切换，已打开的页面随即更新，不用刷新。
+              </p>
+            </div>
+            <div class="card-bar">
+              <div class="actions">
+                <button type="button" id="try-switch" data-en="Next theme">换一个版式</button>
+              </div>
+            </div>
+          </li>
+          <li class="theme-card">
+            <div class="card-head">
+              <h3 data-en="All sites, or just this one">全部站点，或只改这一个</h3>
+              <p
+                data-en="A theme can apply everywhere, or to one site with “Only this site” in the popup. Sites on their own domains work too."
+              >
+                版式可以对所有站点生效，也可以在弹出菜单里单独设置某个站点。使用自己域名的站点也一样。
+              </p>
+            </div>
+            <div class="card-bar">
+              <div class="actions">
+                <button type="button" id="try-site" data-en="Give the second site Maple">
+                  让第二个站点单独用 Maple
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="theme-card">
+            <div class="card-head">
+              <h3 data-en="Your own themes">自定义版式</h3>
+              <p
+                data-en="Add a theme from a URL or a CSS file. Clone any theme to get a copy you can edit in the settings page."
+              >
+                从网址或本地 CSS
+                文件添加版式。任何内置或自定义版式都可以克隆，副本能在设置页直接编辑。
+              </p>
+            </div>
+            <div class="card-bar">
+              <div class="actions">
+                <button type="button" id="try-custom" data-en="Open the settings page">
+                  打开设置页
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="theme-card">
+            <div class="card-head">
+              <h3 data-en="Keep a site’s theme">收藏站点的版式</h3>
+              <p
+                data-en="Found a site that looks good? The + button in the popup saves its theme to your themes, every stylesheet included, ready to use elsewhere."
+              >
+                看到好看的站点，用弹出菜单的加号把它的版式存进自定义版式，多个样式表也会全部保留，之后可以用在别的站点上。
+              </p>
+            </div>
+            <div class="card-bar">
+              <div class="actions">
+                <button type="button" id="try-add" data-en="Add this site’s theme">
+                  添加本站版式
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="theme-card">
+            <div class="card-head">
+              <h3 data-en="Extra CSS">附加 CSS</h3>
+              <p
+                data-en="Every theme can carry a little CSS of your own, for example to set the variables of a community theme. It works on “Site default” too."
+              >
+                每个版式都能追加一段自己的 CSS，比如设置社区版式的 CSS
+                变量。写在「站点默认」上同样有效。
+              </p>
+            </div>
+            <div class="card-bar">
+              <div class="actions"><button type="button" id="try-extra"></button></div>
+            </div>
+          </li>
+          <li class="theme-card">
+            <div class="card-head">
+              <h3 data-en="A top bar that fits">顶栏不错位</h3>
+              <p
+                data-en="Many sites wrap their menu in `.top-bar` and `.mobile-top-bar`, which older themes know nothing of, so two bars show up. The extension restores wikidot’s plain structure when it needs to, and you can overrule it per theme."
+              >
+                不少站点把菜单包在 <code>.top-bar</code> 和 <code>.mobile-top-bar</code>
+                里，老版式不认识它们，于是出现两个顶栏。扩展会在需要时还原 wikidot
+                的原生结构，也可以按版式手动指定。
+              </p>
+            </div>
+            <div class="card-bar">
+              <div class="actions"><button type="button" id="try-top-bar"></button></div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="colors" aria-labelledby="colors-title">
+        <div class="section-head">
+          <h2 id="colors-title" data-en="Colors worked out from the CSS">主题色从 CSS 里算出来</h2>
+          <p
+            class="description"
+            data-en="The popup shows your themes as three swatches. They come from the CSS text alone, by what each color paints in wikidot’s skeleton. Edit the CSS below or paste your own: this is the extension’s real code."
+          >
+            弹出菜单用三个色块展示版式。它们只根据 CSS 文本计算，看每种颜色在 wikidot
+            骨架上画的是哪部分。改动下面的 CSS 或粘贴你自己的：运行的就是扩展里的代码。
+          </p>
+        </div>
+        <div class="theme-card color-lab">
+          <div class="color-input">
+            <textarea id="color-css" spellcheck="false" aria-label="CSS"></textarea>
+          </div>
+          <div class="color-output">
+            <div id="color-result" aria-live="polite"></div>
+            <p
+              class="description"
+              data-en="Only the text is read, so colors drawn by images do not count."
+            >
+              只读文本，看不到图片，用图片画出的颜色不算在内。
+            </p>
+          </div>
+          <div class="card-bar">
+            <div id="color-presets" class="presets"></div>
+            <div class="actions">
+              <button type="button" id="color-add" class="primary" data-en="Try it on the demo">
+                用到演示里
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how" aria-labelledby="how-title">
+        <div class="section-head">
+          <h2 id="how-title" data-en="How it works">原理</h2>
+          <p
+            class="description"
+            data-en="wikidot sites nearly all share one HTML skeleton, and every theme is written into the same element. That makes a theme easy to replace without touching the rest of the page."
+          >
+            wikidot 站点几乎都用同一套 HTML
+            骨架，版式都写在同一个元素里。所以可以只换版式，不动页面的其他部分。
+          </p>
+        </div>
+        <ol class="steps">
+          <li>
+            <h3 data-en="Find it">找到元素</h3>
+            <p
+              data-en='At `document_start`, the content script waits for `<style id="internal-style">`. A page without it is left alone.'
+            >
+              内容脚本在 <code>document_start</code> 运行，等待
+              <code>&lt;style id="internal-style"&gt;</code>。没有它的页面不做任何改动。
+            </p>
+          </li>
+          <li>
+            <h3 data-en="Keep the base">保留基础样式</h3>
+            <p
+              data-en="`common--modules/` and `common--theme/base/` stay. Every other `@import`, the theme the admin chose, goes."
+            >
+              保留 <code>common--modules/</code> 和 <code>common--theme/base/</code>，去掉其余
+              <code>@import</code>，也就是管理员设置的版式。
+            </p>
+          </li>
+          <li>
+            <h3 data-en="Add yours">插入所选版式</h3>
+            <p
+              data-en='`<style id="pretty-enough-theme">` goes right after it, so the page’s own `[[module CSS]]` still comes last, as it did with the site’s theme.'
+            >
+              紧跟着插入 <code>&lt;style id="pretty-enough-theme"&gt;</code>。页面里的
+              <code>[[module CSS]]</code> 仍排在版式之后，层叠顺序不变。
+            </p>
+          </li>
+        </ol>
+        <p>
+          <button type="button" id="try-source" data-en="See it on the demo page">
+            在演示页面上查看
+          </button>
+        </p>
+
+        <h3 data-en="Good to know">使用前可以了解</h3>
+        <details class="fact">
+          <summary data-en="Why it asks for access to all sites">
+            为什么申请所有网站的访问权限
+          </summary>
+          <p
+            data-en="wikidot sites can have any domain, and themes can be hosted anywhere. The content script runs on every page, but it only looks for `#internal-style`. On other pages it does not even read your settings."
+          >
+            wikidot
+            站点可以使用任意域名，版式也可能托管在任何地方。内容脚本因此在每个网页上运行，但只检查页面有没有
+            <code>#internal-style</code>，不是 wikidot 页面时不读取设置，也不做任何改动。
+          </p>
+        </details>
+        <details class="fact">
+          <summary data-en="What can still look off">有哪些已知限制</summary>
+          <ul>
+            <li
+              data-en="Content a site keeps in `nav:top` or `nav:side` for its own theme to hide can show up under another theme. Only the top bar is handled."
+            >
+              有些站点在 <code>nav:top</code>、<code>nav:side</code>
+              里放了只给原版式准备、平时被它隐藏的内容，换版式后会露出来。除顶栏外不做处理。
+            </li>
+            <li data-en="`[[module CSS]]` on a page stays, and may clash with the new theme.">
+              页面里的 <code>[[module CSS]]</code> 保留不动，可能与新版式冲突。
+            </li>
+            <li
+              data-en="Settings are read once the page proves to be a wikidot page, so the site’s theme can flash before the first paint."
+            >
+              设置在确认页面是 wikidot 站点之后才读取，原版式可能在首次绘制前短暂出现。
+            </li>
+          </ul>
+        </details>
+      </section>
+
+      <section id="download" aria-labelledby="download-title">
+        <div class="section-head">
+          <h2 id="download-title" data-en="Download">下载</h2>
+        </div>
+        <ul class="downloads">
+          <li class="theme-card">
+            <div class="card-head">
+              <h3>Chrome</h3>
+              <p data-en="Needs Chrome 111 or later.">需要 Chrome 111 或更高版本。</p>
+            </div>
+            <div class="card-bar">
+              <div class="actions">
+                <a class="button primary" data-link="chrome" data-en="Download for Chrome"
+                  >下载 Chrome 版</a
+                >
+              </div>
+            </div>
+          </li>
+          <li class="theme-card">
+            <div class="card-head">
+              <h3>Firefox</h3>
+              <p data-en="Needs Firefox 128 or later.">需要 Firefox 128 或更高版本。</p>
+            </div>
+            <div class="card-bar">
+              <div class="actions">
+                <a class="button" data-link="firefox" data-en="Download for Firefox"
+                  >下载 Firefox 版</a
+                >
+              </div>
+            </div>
+          </li>
+          <li class="theme-card">
+            <div class="card-head">
+              <h3 data-en="Source code">源代码</h3>
+              <p data-en="MIT licensed.">以 MIT 许可证发布。</p>
+            </div>
+            <div class="card-bar">
+              <div class="actions"><a class="button" data-link="github">GitHub</a></div>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p
+        data-en="Built-in themes come from themes.wikidot.com, under CC BY-SA 3.0: Midnight Coal by pieterh, Monobook by Fereal, Maple by bcammo."
+      >
+        内置版式来自 themes.wikidot.com，以 CC BY-SA 3.0 授权：Midnight
+        Coal（pieterh）、Monobook（Fereal）、Maple（bcammo）。
+      </p>
+      <p data-en="An independent community project, not affiliated with wikidot.">
+        本项目是独立的社区项目，与 wikidot 官方无关。
+      </p>
+    </footer>
+  </body>
+</html>

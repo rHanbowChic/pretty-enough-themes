@@ -1,0 +1,688 @@
+/*
+ * Maple by bcammo
+ * https://themes.wikidot.com/maple
+ * License: Creative Commons Attribution-ShareAlike 3.0
+ * Downloaded from https://themes.wdfiles.com/local--code/maple by scripts/fetch-themes.mjs;
+ * url()s made absolute and https. Do not edit by hand.
+ */
+/***
+
+Theme Name: Maple
+Theme Website: http://themes.wikidot.com/maple
+Version: 1.01
+Author: BMC Creative
+Author Website: http://bmccreative.com
+ 
+***/
+
+
+/*-------------------------------------------------------------
+   GLOBAL 
+---------------------------------------------------------------*/
+ 
+p {margin: 7px 0;line-height: 1.36em;}
+a {color: #76ae45;text-decoration: none;}
+a.newpage {color: #b30000;}
+a:hover {color: #222;background-color: transparent;}
+ 
+h1, h2, h3, h4, h5, h6 {
+    color: #222;
+    font-weight: normal;
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 1.2em;
+    margin: 16px 0;
+}
+h1 {font-size: 220%;}
+h2 {font-size: 180%; color: #444;}
+h3 {font-size: 170%;}
+h4 {font-size: 140%;}
+h5 {font-size: 120%; font-weight: bold;}
+h6 {font-size: 115%; font-weight: bold;}
+ 
+input[type=text], textarea {
+	margin: 0;
+    padding: 7px 5px;
+    background: #fff;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f5f5f5), to(#fff), color-stop(.2,#fff));
+    background-image: -moz-linear-gradient(top,#f5f5f5, #fff, #fff 60%);
+    border: 1px solid #ccc;
+}
+input[type=text]:focus, textarea:focus {
+	border: 1px solid #8ed153;
+	outline: none;
+}
+ 
+/*-------------------------------------------------------------
+   LAYOUT 
+---------------------------------------------------------------*/
+html {
+    margin: 0;
+    background: #313537;
+}
+body {
+    color: #222;
+    background: #fbfbfb url("https://themes.wdfiles.com/local--files/maple/body-bg.gif") repeat 0 0;
+	
+	font: 13px/1.3em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+#container-wrap-wrap {
+	background: url("https://themes.wdfiles.com/local--files/maple/header-bg2.png") repeat-x 0 0;	
+}
+#extra-div-1 {
+	position: absolute;
+	top: 129px;
+	height: 42px;
+	left: 0;
+	right: 0;
+	background: #313537 url("https://themes.wdfiles.com/local--files/maple/topbar-bg.png") repeat-x 0 0;
+}
+#container-wrap {
+	background: url("https://themes.wdfiles.com/local--files/maple/footer-bg.png") repeat-x 0 100%;
+}
+#container {
+    margin: 0 auto;
+    width: 960px; 
+}
+ 
+/*-------------------------------------------------------------
+   HEADER 
+---------------------------------------------------------------*/
+ 
+#header {
+    height: 165px;
+    position: relative;
+}
+#header h1 {
+    position: absolute;
+    top: 40px;
+}
+#header h1 a {
+    color: #dadada;
+    font-size: 40px;
+    padding: 17px 0 0;
+    letter-spacing: -2px;
+	font-weight: bold;
+	text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+	-webkit-transition: color 140ms linear;
+	-moz-transition: color 140ms linear;
+	transition: color 140ms linear;
+}
+#header h1 a:hover {color: #8ed153;}
+#header h2 {
+    color: #aaa;
+    position: absolute;
+    top: 80px;
+    left: 0px;
+    background: none;
+	text-transform: uppercase;
+	font: 11px Arial, Helvetica, sans-serif;
+}
+
+/*----- LOGIN STATUS ------------------------------------------*/
+ 
+#login-status {
+    color: #ccc;
+    position: absolute;
+    top: 3px;
+    font-size: 11px;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.45);
+}
+#login-status .printuser a {
+    display: none;
+}
+a#account-topbutton {
+    background: none;
+    border: none;
+}
+#login-status a {
+    padding: 0 3px;
+    color: #ccc;
+    text-decoration: none;
+}
+#login-status a:hover {color: #fff;}
+#account-options {
+    width: 140px;
+    margin-top: 4px;
+    text-align: center;
+    border: none;
+    -webkit-box-shadow: 0 0 3px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0 0 3px rgba(0,0,0,0.4);
+    box-shadow: 0 0 3px rgba(0,0,0,0.4);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+#account-options a {
+	text-shadow: none;
+	color: #888;
+}
+ 
+/*----- SEARCH TOP BOX -----------------------------------------*/
+ 
+#search-top-box {
+    position: absolute;
+    right: 0px;
+    top: 45px;
+    height: 30px;
+    width: 240px;
+    text-align: right;
+}
+#search-top-box-form {
+	height: 30px;
+}
+#search-top-box input.text {
+    width: 170px;
+    margin:  0;
+    padding: 7px 25px 7px 5px;
+    background: #373c3e;
+    border: 1px solid #252525;
+    color: #777;
+    -webkit-box-shadow: 0 0 3px rgba(0,0,0,0.5) inset;
+    -moz-box-shadow: 0 0 3px rgba(0,0,0,0.5) inset;
+    box-shadow: 0 0 3px rgba(0,0,0,0.5) inset;
+    -webkit-transition: all 230ms ease;
+    -moz-transition: all 230ms ease;
+    transition: all 230ms ease;
+}
+#search-top-box input.text:focus {
+	border: 1px solid #000;
+	background: #484e51;
+	color: #aaa;
+}
+#search-top-box input.text.empty {
+    color: #777;
+    font-style: italic;
+}
+#search-top-box input.button {
+    position: absolute;
+    top: 2px;
+    right: -5px;
+    border: none;
+    display: block;
+    width: 36px;
+    height: 28px;
+    padding: 0;
+    background: url("https://themes.wdfiles.com/local--files/maple/search16.png") no-repeat 50% 50%;
+    color: transparent;
+    text-indent: -9999px;
+    font-size: 0;
+    line-height: 0;
+    opacity: 0.4;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: opacity 160ms ease;
+    -moz-transition: opacity 160ms ease;
+    transition: opacity 160ms ease;
+}
+#search-top-box input.button:hover {
+    opacity: 1;
+}
+ 
+/*----- TOPBAR NAVIGATION ------------------------------------*/
+ 
+#top-bar {
+    bottom: 0;
+    height: 36px;
+    display: block;
+    left: 0;
+    position: absolute;
+    width: 958px;
+    z-index: 2;
+}
+#top-bar ul {
+    float: left;
+    padding: 0;
+    height: 36px;
+    margin: 0;
+    background: url("https://themes.wdfiles.com/local--files/maple/nav-divider.png") no-repeat 0 0;
+}
+#top-bar ul li {
+    display: inline;
+    font-size: 14px;
+    padding: 0 2px 0 0; 
+    height: 36px;
+    margin: 0;
+    position: relative;
+    background: url("https://themes.wdfiles.com/local--files/maple/nav-divider.png") no-repeat 100% 0;
+}
+#top-bar ul li a {
+    display: block;
+    color: #ddd;
+    font-weight: bold;
+    height: 15px;
+    padding: 9px 26px 12px;
+    text-shadow: 0px -1px 1px rgba(0,0,0,0.5); 
+}
+#top-bar ul li a.current-link,
+#top-bar ul li a:hover,
+#top-bar ul li.sfhover > a {
+	background: #2d3234;
+	background: rgba(0,0,0,0.2);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(0,0,0,0.15)), to(rgba(0,0,0,0.35)));
+	background: -moz-linear-gradient(top,rgba(0,0,0,0.15),rgba(0,0,0,0.35));
+	background: -o-linear-gradient(top,rgba(0,0,0,0.15),rgba(0,0,0,0.35));
+    text-decoration: none;
+    border-bottom: 3px solid #8ed153;
+	height: 12px;
+}
+#top-bar ul li ul {
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    font-size: 1em;
+    left: 0;
+    line-height: 1.8em;
+    padding: 4px 0;
+    position: absolute;
+    z-index: 100;
+    width: 160px;
+    height: auto;
+    border: none;
+    background: #313537 url("https://themes.wdfiles.com/local--files/maple/footer-bg.png") repeat-x 0 0;
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0 1px 4px rgba(0,0,0,0.6);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.6);
+    -webkit-transition: all 400ms ease-out;
+    -moz-transition: all 400ms ease-out;
+}
+#top-bar ul li:hover ul,
+#top-bar ul li.sfhover ul {
+    display: inline-block;
+    opacity: 1;
+}
+#top-bar ul li ul li {
+    padding: 0 10px;
+    background: none;
+    border: none;
+    display: inline-block;
+    width: auto;
+    height: auto;
+}
+#top-bar ul li ul li a {
+    background: none;
+    padding: 6px 0;
+    text-transform: none;
+    line-height: 1;
+    height: auto;
+}
+#top-bar ul li.sfhover ul li a,
+#top-bar ul li:hover ul li a {
+    background: none;
+}
+#top-bar ul li ul li a:hover {
+    color: #fff;
+    border: none;
+    height: auto;
+}
+#top-bar ul li ul li ul {
+    display: none !important;
+}
+
+/*-------------------------------------------------------------
+   MAIN CONTENT
+---------------------------------------------------------------*/
+ 
+#content-wrap {
+    position: relative;
+    padding: 0;
+    margin-top: 20px;
+    clear: both;
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+    background-color: rgba(249,249,249,0.67);
+    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.1);
+    box-shadow: 0 0 2px rgba(0,0,0,0.1);	
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+#page-title {
+    border: none;
+    font-size: 26px;
+    font-weight: normal;
+    text-decoration: none;
+    margin: 10px 0 !important;
+    color: #424242;
+    letter-spacing: -1px;
+    padding: 5px 0;
+}
+#main-content {
+    padding: 5px 10px;
+    width: 660px;
+    margin: 0;
+}
+#page-content {
+    width: auto;
+    margin: 0 auto;
+}
+ 
+/*----- SIDEBAR -------------------------------------------*/
+ 
+#side-bar{
+    float: right;
+    padding: 10px;
+    width: 250px;
+    margin: 0;
+    overflow: hidden;
+}
+#side-bar a {color: #444;}
+#side-bar a:hover {color: #76ae45;}
+#side-bar ul {
+    list-style-type: none;
+    padding: 0 5px 0;
+}
+ 
+/*----- SIDEBAR ON LEFT -----------------------------------*
+ 
+#page-title {margin-left: 10px;}
+#side-bar {float: left;}
+#main-content {
+    margin-left: 270px;
+    border-right: none;
+}
+ 
+/*----- NO SIDEBAR ---------------------------------------*
+ 
+#side-bar {display: none;}
+#main-content {
+    width: 930px;
+    margin: 0 auto;
+}
+ 
+/*----- BREADCRUMBS -------------------------------------------*/
+ 
+#breadcrumbs {
+    color: #666;
+    padding: 5px 10px;
+    width: 95%;
+    margin: 15px 5px;
+    font-size: 11px;
+    background: #fff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);
+    box-shadow: 0 0 2px rgba(0,0,0,0.15);
+}
+#breadcrumbs a {color: #666;}
+#breadcrumbs a:hover {color: #76ae45;}
+ 
+/*-------------------------------------------------------------
+   FOOTER
+---------------------------------------------------------------*/
+#page-options-container {padding-bottom: 5px;}
+#footer {
+    color: #bbb;
+    padding: 12px 10px 0;
+    font-size: 0.95em;
+    margin-top: 55px;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.75);
+}
+#footer .options {font-size: 100%;}
+#footer a, #license-area a {
+    color: #bbb;
+    text-decoration: none;
+}
+#footer a:hover, #license-area a:hover {color: #76ae45;}
+#license-area {
+    padding: 15px 10px 35px;
+    color: #ddd;
+    font-size: 0.95em;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.75);
+}
+/*-------------------------------------------------------------
+   WIKI ELEMENTS
+---------------------------------------------------------------*/
+#action-area {padding: 0 3px;}
+#action-area h1 {font-size: 200%;}
+a.action-area-close:hover {background: none;}
+.code {
+	background: #fff;
+    display: block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+blockquote {
+    background: url("https://themes.wdfiles.com/local--files/hello/hello-quote.png") no-repeat 0 0;
+    border: none;
+    color: #555;
+    font-family: Georgia, “Times New Roman”, Times, serif;
+    font-style: italic;
+    min-height: 30px;
+    padding: 0 45px;
+    margin: 0 40px 25px 40px;
+}
+#edit-page-textarea {
+	resize: both;
+}
+ 
+/*----- INBUILT HOVERTIPS -------------------------------------*/
+.hovertip {
+    border: none !important;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    max-width: 300px;
+    background: none;
+}
+.hovertip .content {
+	background-color: #333;
+    background-color: rgba(20,20,20,0.83617);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 4px 8px;    
+    color: #fff;
+}
+.hovertip .content .footnote .f-content {
+    margin: 2px;
+}
+.hovertip .content .footnote .f-heading, .hovertip .content .footnote .f-footer  {
+    display: none !important;
+}
+ 
+/*----- COMMENTS ----------------------------------------------*/
+ 
+.comments-box {
+    border-top: 2px solid #eee;
+    margin: 10px 0;
+}
+.comments-box h1 {
+    color: #444;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.change-textarea-size {
+	padding-right: 50px;
+}
+.change-textarea-size a {
+	background: #fff;
+	border: 1px solid #d4d4d4;
+	-webkit-border-radius: 0 0 3px 3px;
+	-moz-border-radius: 0 0 3px 3px;
+	border-radius: 0 0 3px 3px;
+}
+.change-textarea-size a:hover {
+	background: #eee;
+}
+.post-container {
+    background: #fefefe;
+    padding: 0 10px;
+    position: relative;
+    margin: 15px 0;
+    border: 1px solid #bbb;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.post-container .post {
+    margin: 0;
+    padding: 5px 0 2px;
+}
+.post-container .post.folded .short {background: none;}
+.post-container .head .info, .post-container .head {
+    margin: 0;
+    background: none !important;
+    border: none;
+    text-transform: none;
+}
+.post-container .head .info .printuser a {
+    color: #2191d1;
+    text-transform: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+.post-container .head .info .printuser a:hover {
+    background: none;
+    color: #444;
+}
+.post-container .head .info .odate {
+    float: right;
+    color: #777;
+    font-size: 12px;
+}
+.post-container .head .options{display: none;}
+.post-container .options {
+    margin: 5px 0 0;
+    padding: 5px 0 0;
+}
+.post-container .post .options a {
+    color: #444;
+    padding: 4px 0 0;
+    text-decoration: none;
+    font-size: 12px;
+}
+.post-container .post .options a:hover {color: #2191d1;}
+ 
+/*----- BUTTONS ----------------------------------------------*/
+ 
+div.buttons input, input.button, button, file, a.button, 
+.button-bar a, #new-post-button, .rate-points, .rateup a, 
+.ratedown a, .cancel a, .pager a, .pager .current, div.new-post a, 
+.owindow .button-bar a {
+    height: auto;
+    padding: 6px 10px;
+    font: bold 13px Arial, sans-serif;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: url("https://themes.wdfiles.com/local--files/hello/hello-button-bg.gif") repeat-x;
+    border: 1px solid #d4d4d4;
+    color: #616161;
+    margin: 0 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+	box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+div.buttons input:hover, input.button:hover, button:hover, 
+file:hover, a.button:hover, .button-bar a:hover, #new-post-button:hover, 
+.rateup a:hover, .ratedown a:hover, .cancel a:hover, .pager a:hover, 
+div.new-post a:hover, .owindow .button-bar a:hover {
+    color: #515151;
+    background: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+.page-rate-widget-box .rate-points, .pager .current {
+    color: #555;
+    padding: 4px 6px;
+    font-size: 1.1em; 
+    border: 1px solid #d4d4d4;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;      
+}
+.pager a, .pager a:hover, .pager .current, .page-rate-widget-box a {
+    padding: 3px 8px;
+}
+.pager .current {
+	border: 1px solid #2191d1;
+}
+/* OWINDOWS  ------------------------------------------------------------- */
+ 
+.odialog-shader,.notify-shader {
+    background-color: #222;    
+    filter: alpha(opacity=55);
+    opacity: 0.55 !important;
+}
+.owindow,.notify{
+    background-color: #fff;
+    border: none;
+    padding: 0;
+    color: #454545;
+	font: normal 0.9em "Lucida Grande", Lucida, Verdana, sans-serif;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.874);
+    -moz-box-shadow: 0 1px 4px rgba(0,0,0,0.874);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.874);
+    -webkit-background-clip: padding-box;
+}
+.owindow .title, .notify-title {
+	font: nornal 1em "Lucida Grande", Lucida, Verdana, sans-serif;
+	padding: 10px;
+	color: #ddd;
+    text-shadow: 0px -1px 1px rgba(0,0,0,0.5); 
+	height: 16px;
+	background: #313537 url("https://themes.wdfiles.com/local--files/maple/topbar-bg.png") repeat-x 0 0;
+	border-bottom: 1px solid #2d2d2d;
+	-webkit-background-clip: padding-box;
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+	-webkit-box-shadow: 
+		0 1px 0 rgba(255,255,255,0.1) inset, 
+		0 1px 2px rgba(0,0,0,0.3);
+	-moz-box-shadow: 
+		0 1px 0 rgba(255,255,255,0.1) inset, 
+		0 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 
+		0 1px 0 rgba(255,255,255,0.1) inset, 
+		0 1px 2px rgba(0,0,0,0.3);
+}
+.owindow h1,.notify h1 {
+	font: 1.2em "Lucida Grande", Lucida, Verdana, sans-serif;
+	margin: 10px 0;
+}
+.owindow .content,.notify-content {
+	padding: 10px;
+}
+.owindow .button-bar,
+.notify-button-bar {
+    font-family: "Lucida Grande", Lucida, Verdana, sans-serif; 
+    position: absolute;
+    top: 6px;
+    right: 0;
+    padding: 0;	
+}
+.owindow .button-bar a, .owindow .button-bar a:active,
+.notify-button-bar a,
+.notify-button-bar a:active {
+    background: none;
+    border: none;
+    color: #ddd !important;
+    text-shadow: 0px -1px 1px rgba(0,0,0,0.5);
+    padding: 0;
+    margin: 0 10px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.owindow .button-bar a:hover,
+.notify-button-bar a:hover {
+    background: none;
+    color: #fff !important;
+    text-decoration: none;
+}

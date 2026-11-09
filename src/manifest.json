@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Pretty Enough Themes",
+  "description": "__MSG_description__",
+  "version": "0.0.0",
+  "default_locale": "en",
+  "minimum_chrome_version": "111",
+  "icons": {
+    "16": "img/logo-16.png",
+    "32": "img/logo-32.png",
+    "48": "img/logo-48.png",
+    "128": "img/logo-128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "img/logo-16.png",
+      "32": "img/logo-32.png",
+      "48": "img/logo-48.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "scripting"],
+  "host_permissions": ["*://*/*"],
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content/theme.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

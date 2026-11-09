@@ -1,0 +1,43 @@
+{
+  "name": "pretty-enough-themes",
+  "displayName": "Pretty Enough Themes",
+  "version": "0.0.1",
+  "author": "**",
+  "description": "Replace the theme of any wikidot site with one you pick.",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "chrome-extension",
+    "firefox-extension",
+    "wikidot",
+    "theme"
+  ],
+  "scripts": {
+    "dev": "node scripts/build.mjs --watch",
+    "dev:firefox": "node scripts/build.mjs --target=firefox --watch",
+    "build": "tsc && node scripts/build.mjs",
+    "build:firefox": "tsc && node scripts/build.mjs --target=firefox",
+    "test": "esbuild src/theme-colors/index.test.ts --bundle --platform=node --format=esm --outfile=node_modules/.cache/theme-colors.test.mjs --log-level=warning && node --test node_modules/.cache/theme-colors.test.mjs",
+    "themes": "node scripts/fetch-themes.mjs",
+    "site": "vite site",
+    "site:build": "tsc && vite build site",
+    "site:preview": "vite preview site",
+    "fmt": "prettier --write '**/*.{ts,mjs,json,css,html,md}'",
+    "zip": "npm run build && node scripts/zip.mjs",
+    "crx": "npm run build && node scripts/crx.mjs",
+    "run:firefox": "web-ext run -s build-firefox",
+    "lint:firefox": "npm run build:firefox && web-ext lint -s build-firefox",
+    "zip:firefox": "npm run build:firefox && web-ext build -s build-firefox -a package -n pretty-enough-themes-{version}-firefox.zip --overwrite-dest",
+    "sign:firefox": "npm run build:firefox && node scripts/source.mjs && web-ext sign -s build-firefox -a package --channel=unlisted --upload-source-code package/pretty-enough-themes-$npm_package_version-source.zip"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.246",
+    "crx3": "^2.0.0",
+    "gulp": "^5.0.0",
+    "gulp-zip": "^6.0.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2",
+    "vite": "^5.4.10",
+    "web-ext": "^10.7.0"
+  }
+}

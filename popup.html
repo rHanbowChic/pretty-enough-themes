@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title data-i18n="popupTitle"></title>
+  </head>
+  <body>
+    <!-- Text comes from src/ui/messages.ts, filled in by data-i18n key. -->
+    <header>
+      <img src="/icons/logo.svg" alt="" width="24" height="24" />
+      <h1>Pretty Enough Themes</h1>
+      <button type="button" id="add-site" class="icon" hidden>
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+            <path class="add" d="M8 2.5v11M2.5 8h11" />
+            <path class="added" stroke-linejoin="round" d="M2.5 8.5l3.7 3.7 7.3-8" />
+          </g>
+        </svg>
+      </button>
+      <button type="button" id="open-settings" class="icon" data-i18n-title="settings">
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round">
+            <path
+              d="M12.59 6.27L14.47 6.69 14.47 9.31 12.59 9.73 12.46 10.02 13.5 11.65 11.65 13.5 10.02 12.46 9.73 12.59 9.31 14.47 6.69 14.47 6.27 12.59 5.98 12.46 4.35 13.5 2.5 11.65 3.54 10.02 3.41 9.73 1.53 9.31 1.53 6.69 3.41 6.27 3.54 5.98 2.5 4.35 4.35 2.5 5.98 3.54 6.27 3.41 6.69 1.53 9.31 1.53 9.73 3.41 10.02 3.54 11.65 2.5 13.5 4.35 12.46 5.98Z"
+            />
+            <circle cx="8" cy="8" r="2.2" />
+          </g>
+        </svg>
+      </button>
+    </header>
+
+    <div id="notice" hidden></div>
+
+    <fieldset id="scope" hidden>
+      <legend data-i18n="scope"></legend>
+      <label
+        ><input type="radio" name="scope" value="all" /><span data-i18n="scopeAll"></span
+      ></label>
+      <label><input type="radio" name="scope" value="site" /><span id="scope-site"></span></label>
+    </fieldset>
+
+    <div id="themes" role="radiogroup"></div>
+
+    <label id="top-bar-field" data-i18n-title="topBarHint" hidden>
+      <span data-i18n="topBar"></span>
+      <select id="top-bar-choice">
+        <option value="" data-i18n="topBarAuto"></option>
+        <option value="flatten" data-i18n="topBarFlatten"></option>
+        <option value="keep" data-i18n="topBarKeep"></option>
+      </select>
+    </label>
+
+    <footer>
+      <a href="#" id="manage" data-i18n="manageThemes"></a>
+    </footer>
+    <script type="module" src="/src/popup/index.ts"></script>
+  </body>
+</html>

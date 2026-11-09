@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/icons/logo.ico" />
+    <title data-i18n="optionsTitle"></title>
+  </head>
+  <body>
+    <!-- Text comes from src/ui/messages.ts, filled in by data-i18n key. -->
+    <main>
+      <header>
+        <img src="/icons/logo.svg" alt="" width="32" height="32" />
+        <h1>Pretty Enough Themes</h1>
+      </header>
+
+      <section id="themes" aria-labelledby="themes-title">
+        <h2 id="themes-title" data-i18n="themes"></h2>
+        <p class="description" data-i18n="themesHint"></p>
+        <p class="status" id="themes-status" aria-live="polite"></p>
+        <ul id="theme-list"></ul>
+      </section>
+
+      <section id="add" aria-labelledby="add-title">
+        <h2 id="add-title" data-i18n="addTheme"></h2>
+        <form id="add-url" class="add" novalidate>
+          <h3 data-i18n="fromUrl"></h3>
+          <p class="description" data-i18n="fromUrlHint"></p>
+          <div class="fields">
+            <input
+              type="url"
+              name="url"
+              class="grow"
+              required
+              data-i18n-placeholder="urlPlaceholder"
+            />
+            <input type="text" name="name" data-i18n-placeholder="namePlaceholder" />
+            <button type="submit" class="primary" data-i18n="add"></button>
+          </div>
+          <p class="status" aria-live="polite"></p>
+        </form>
+
+        <form id="add-file" class="add">
+          <h3 data-i18n="fromFile"></h3>
+          <p class="description" data-i18n="fromFileHint"></p>
+          <div class="fields">
+            <input type="file" name="file" accept=".css,text/css" hidden />
+            <button type="button" id="choose-file" data-i18n="chooseFile"></button>
+          </div>
+          <p class="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section id="sites" aria-labelledby="sites-title">
+        <h2 id="sites-title" data-i18n="sites"></h2>
+        <h3 data-i18n="siteChoices"></h3>
+        <p class="description" id="site-choices-hint"></p>
+        <ul id="site-list" class="rows"></ul>
+      </section>
+
+      <section id="about" aria-labelledby="about-title">
+        <h2 id="about-title" data-i18n="about"></h2>
+        <dl class="about-info">
+          <dt data-i18n="aboutVersion"></dt>
+          <dd id="version"></dd>
+          <dt data-i18n="aboutLicense"></dt>
+          <dd>MIT</dd>
+        </dl>
+        <h3 data-i18n="builtinCredits"></h3>
+        <p class="description" data-i18n="builtinCreditsHint"></p>
+        <ul id="credits"></ul>
+      </section>
+    </main>
+    <script type="module" src="/src/options/index.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "locale": {
+    "message": "zh",
+    "description": "UI locale of the extension, read by uiLocale() in src/i18n.ts."
+  },
+  "description": {
+    "message": "把 wikidot 站點的版式換成你選擇的版式。"
+  }
+}
